@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ExercicioResolvidoEnumComp1.Entidades.Enums
+﻿namespace ExercicioResolvidoEnumComp1.Entidades.Enums
 {
-    class NivelDoColaborador
+    enum NivelDoColaborador : int
     {
+        Junior = 0,
+        NivelMedio = 1,
+        Senior = 2
     }
 }

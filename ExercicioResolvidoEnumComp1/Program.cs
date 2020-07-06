@@ -26,7 +26,7 @@ namespace ExercicioResolvidoEnumComp1
             Console.Write("Informe quantos são os contratos para este colaborador: ");
             int quantContratos = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i <= quantContratos; i++)
+            for (int i = 1; i <= quantContratos; i++)
             {
                 Console.WriteLine($"Informe #{i} dados do contrato: ");
                 Console.Write("Data (DD/MM/YYYY): ");
@@ -35,11 +35,18 @@ namespace ExercicioResolvidoEnumComp1
                 double valorPorHora = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 Console.Write("Informe a quantidade de horas: ");
                 int horas = int.Parse(Console.ReadLine());
-
                 ContratoHora contrato = new ContratoHora(data, valorPorHora, horas);
-
+                colaborador.AddContrato(contrato);
             }
 
+            Console.WriteLine();
+            Console.Write("Informe o mês e o ano para calcular os ganhos (MM/AAAA): ");
+            string mesAno = Console.ReadLine();
+            int mes = int.Parse(mesAno.Substring(0, 2)); //Vai recortar a representação (MM/AAAA) a partir da posição zero até duas posições 
+            int ano = int.Parse(mesAno.Substring(3)); //Vai recortar a representação (MM/AAAA) a partir da posição trêz até o final
+            Console.WriteLine("Nome: " + colaborador.Nome);
+            Console.WriteLine("Departamento: " + colaborador.Departamento.Nome);
+            Console.WriteLine("Ganhos: " + mesAno + ": " + colaborador.Ganho(ano, mes).ToString("F2"), CultureInfo.InstalledUICulture);
         }
 
     }
